@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CreatePost from "./Components/CreatePost";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -5,16 +6,15 @@ import PostList from "./Components/PostList";
 import Slidebar from "./Components/Slidebar";
 
 const App = () => {
+  const [selectedtab, setselectedtab] = useState("CreatePost");
   return (
     <>
       <div className="flex">
-        <Slidebar />
+        <Slidebar selectedtab={selectedtab} setselectedtab={setselectedtab} />
         <div className="w-full">
           <Header />
-          <CreatePost/>
-          <PostList/>
+          {selectedtab === "Home" ? <PostList /> : <CreatePost />}
           <Footer />
-          
         </div>
       </div>
     </>
