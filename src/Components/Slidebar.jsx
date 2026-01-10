@@ -1,5 +1,6 @@
-const Slidebar = ({selectedtab}) => {
-  
+const Slidebar = ({selectedtab,setselectedtab}) => {
+     
+
   return (
     <>
       <div className="flex flex-col shrink-0 p-3 bg-gray-900  vh-full w-70"> 
@@ -16,7 +17,7 @@ const Slidebar = ({selectedtab}) => {
         <hr />
 
         <ul className="nav nav-pills flex-column mb-auto">
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => {setselectedtab("Home")}}>
             <a href="#" className={`nav-link text-white ${selectedtab === 'Home' && 
             'active'}`} aria-current="page">
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
@@ -26,7 +27,7 @@ const Slidebar = ({selectedtab}) => {
             </a>
           </li>
 
-          <li>
+          <li onClick={() => {setselectedtab("CreatePost")}}>
             <a href="#" className={`nav-link text-white ${selectedtab === "CreatePost" &&
              'active'}`}>
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
@@ -68,6 +69,5 @@ const Slidebar = ({selectedtab}) => {
     </>
   );
 }
-
 
 export default Slidebar;
